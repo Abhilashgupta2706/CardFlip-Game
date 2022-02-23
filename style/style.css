@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    /* ff 3.6+ */
+    background: -moz-linear-gradient(166deg, #00FFEB 0%, #073ABB 100%);
+
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-linear-gradient(166deg, #00FFEB 0%, #073ABB 100%);
+
+    /* opera 11.10+ */
+    background: -o-linear-gradient(166deg, #00FFEB 0%, #073ABB 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#073ABB', endColorstr='#00FFEB', GradientType=1);
+
+    /* ie 10+ */
+    background: -ms-linear-gradient(166deg, #00FFEB 0%, #073ABB 100%);
+
+    /* global 94%+ browsers support */
+    background: linear-gradient(166deg, #00FFEB 0%, #073ABB 100%);
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(4, 8rem);
+    grid-template-rows: repeat(4, 8rem);
+    gap: 1rem;
+    perspective: 800px;
+}
+
+@media screen and (max-width:430px) {
+    section {
+        grid-template-columns: repeat(4, 5.5rem);
+        grid-template-rows: repeat(4, 5.5rem);
+    }
+
+}
+
+@media screen and (max-width:380px) {
+    section {
+        grid-template-columns: repeat(4, 4.5rem);
+        grid-template-rows: repeat(4, 4.5rem);
+    }
+
+}
+
+@media screen and (max-width:330px) {
+    section {
+        grid-template-columns: repeat(4, 4rem);
+        grid-template-rows: repeat(4, 4rem);
+        gap: .7rem;
+    }
+
+}
+
+@media screen and (max-width:300px) {
+    section {
+        grid-template-columns: repeat(4, 3.4rem);
+        grid-template-rows: repeat(4, 3.4rem);
+        gap: .7rem;
+    }
+
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.toggle-card {
+    transform: rotateY(180deg);
+}
+
+.face, .back {
+    border-radius: inherit;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.back {
+    background: #fff;
+    backface-visibility: hidden;
+}
